@@ -30,17 +30,22 @@ interface OrbitParamsInterface {
 }
 
 interface PayloadInterface {
-  payload_id: string;
-  norad_id: number[];
-  reused: boolean;
-  customers: string[];
-  nationality: string;
-  manufacturer: string;
-  payload_type: string;
-  payload_mass_kg: number;
-  payload_mass_lbs: number;
-  orbit: string;
-  orbit_params: OrbitParamsInterface;
+  payload_id?: string;
+  cap_serial?: string;
+  norad_id?: number[];
+  reused?: boolean;
+  customers?: string[];
+  nationality?: string;
+  manufacturer?: string;
+  payload_type?: string;
+  payload_mass_kg?: number;
+  payload_mass_lbs?: number;
+  orbit?: string;
+  orbit_params?: OrbitParamsInterface;
+  mass_returned_kg?: number;
+  mass_returned_lbs?: number;
+  flight_time_sec?: number;
+  cargo_manifest?: string;
 }
 
 interface FirstStageInterface {
@@ -49,7 +54,7 @@ interface FirstStageInterface {
 
 interface SecondStageInterface {
   block: number;
-  payloads: Array<PayloadInterface>;
+  payloads?: Array<PayloadInterface>;
 }
 
 interface FairingsInterface {
@@ -92,6 +97,7 @@ interface LinksInterface {
 
 interface TimelineInterface {
   webcast_liftoff?: number;
+  webcast_launch?: number;
   go_for_prop_loading?: number;
   rp1_loading?: number;
   stage1_lox_loading?: number;
@@ -104,6 +110,15 @@ interface TimelineInterface {
   liftoff?: number;
   maxq?: number;
   meco?: number;
+  beco?: number;
+  side_core_sep?: number;
+  side_core_boostback?: number;
+  center_stage_sep?: number;
+  center_core_boostback?: number;
+  side_core_entry_burn?: number;
+  center_core_entry_burn?: number;
+  side_core_landing?: number;
+  center_core_landing?: number;
   stage_sep?: number;
   second_stage_ignition?: number;
   fairing_deploy?: number;
@@ -113,13 +128,18 @@ interface TimelineInterface {
   'seco-1'?: number;
   second_stage_restart?: number;
   'seco-2'?: number;
+  dragon_separation?: number;
+  dragon_solar_deploy?: number;
+  dragon_bay_door_deploy?: number;
   payload_deploy?: number;
+  payload_deploy_1?: number;
+  payload_deploy_2?: number;
 }
 
 interface RocketInterface {
-  rocket_id: string;
-  rocket_name: string;
-  rocket_type: string;
+  rocket_id?: string;
+  rocket_name?: string;
+  rocket_type?: string;
   first_stage: FirstStageInterface;
   second_stage: SecondStageInterface;
   fairings: FairingsInterface;
@@ -128,22 +148,22 @@ interface RocketInterface {
 export interface LaunchInterface {
   flight_number: number;
   mission_name: string;
-  mission_id: string[];
-  upcoming: boolean;
-  launch_year: string;
-  launch_date_unix: number;
-  launch_date_utc: string;
-  launch_date_local: string;
-  is_tentative: boolean;
-  tentative_max_precision: string;
-  tbd: boolean;
-  launch_window: number;
+  mission_id?: string[];
+  upcoming?: boolean;
+  launch_year?: string;
+  launch_date_unix?: number;
+  launch_date_utc?: string;
+  launch_date_local?: string;
+  is_tentative?: boolean;
+  tentative_max_precision?: string;
+  tbd?: boolean;
+  launch_window?: number;
   rocket: RocketInterface;
   ships: string[];
   telemetry: TelemetryInterface;
   launch_site: LaunchSiteInterface;
   launch_success: boolean;
-  launch_failure_details: LaunchFailureInterface;
+  launch_failure_details?: LaunchFailureInterface;
   links: LinksInterface;
   details: string;
   static_fire_date_utc: string;
