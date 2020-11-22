@@ -4,16 +4,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const SPACEX_ALL_LAUNCHES_API: string =
-  'https://api.spacexdata.com/v4/launches/past';
-const SPACEX_LATEST_LAUNCH_API: string =
-  'https://api.spacexdata.com/v4/launches/latest';
+const SPACEX_BASE_API: string = 'https://api.spacexdata.com/v4/launches';
 @Injectable()
 export class SpaceXLaunchFinderService {
   constructor(private http: HttpClient) {}
 
-  getLaunches(): Observable<LaunchInterface[]> {
-    return this.http.get(SPACEX_ALL_LAUNCHES_API).pipe(
+  getPastLaunches(): Observable<LaunchInterface[]> {
+    return this.http.get(`${SPACEX_BASE_API}/past`).pipe(
       map((response: LaunchInterface[]) => {
         return response;
       })
@@ -21,7 +18,7 @@ export class SpaceXLaunchFinderService {
   }
 
   getLatestLaunch(): Observable<LaunchInterface> {
-    return this.http.get(SPACEX_LATEST_LAUNCH_API).pipe(
+    return this.http.get(`${SPACEX_BASE_API}/latest`).pipe(
       map((response: LaunchInterface) => {
         return response;
       })

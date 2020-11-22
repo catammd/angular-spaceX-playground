@@ -4,19 +4,22 @@ import { orderBy } from 'lodash';
 @Pipe({ name: 'sortBy' })
 export class SortByPipe implements PipeTransform {
   transform(value: any[], order = '', column: string = ''): any[] {
+    // No array
     if (!value || order === '' || !order) {
       return value;
-    } // no array
+    }
+    // Array with only one item
     if (value.length <= 1) {
       return value;
-    } // array with only one item
+    }
+    // Sort one dimensional array
     if (!column || column === '') {
       if (order === 'asc') {
         return value.sort();
       } else {
         return value.sort().reverse();
       }
-    } // sort 1d array
+    }
     return orderBy(value, [column], [order]);
   }
 }

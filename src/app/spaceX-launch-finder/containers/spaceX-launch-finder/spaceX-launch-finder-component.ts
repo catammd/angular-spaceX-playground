@@ -32,7 +32,7 @@ export class SpaceXLaunchFinderComponent implements OnInit {
   constructor(private launchFinderService: SpaceXLaunchFinderService) {}
   ngOnInit() {
     this.launchFinderService
-      .getLaunches()
+      .getPastLaunches()
       .subscribe((data: LaunchInterface[]) => {
         this.launches = data;
       });
