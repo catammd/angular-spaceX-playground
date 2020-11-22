@@ -1,9 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { LaunchInterface } from '../../models/launch.interface';
 
 @Component({
   selector: 'mission-details',
-  template: `<p>Mission details component</p> `,
+  template: `<ul>
+    <li>
+      Mission details
+      <p>Launch success: {{ mission.launch_success }}</p>
+      <p>Name: {{ mission.mission_name }}</p>
+      <p>Flight number: {{ mission.flight_number }}</p>
+    </li>
+  </ul> `,
 })
 export class MissionDetailsComponent {
-  constructor() {}
+  @Input()
+  mission: LaunchInterface;
 }
