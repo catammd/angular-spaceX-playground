@@ -6,8 +6,8 @@ import { LaunchInterface } from '../../models/launch.interface';
   template: `<ul>
     <li>
       Mission details
-      <p>Launch success: {{ mission.launch_success }}</p>
-      <p>Name: {{ mission.mission_name }}</p>
+      <p>Launch success: {{ mission.success }}</p>
+      <p>Name: {{ mission.name }}</p>
       <p>Flight number: {{ mission.flight_number }}</p>
     </li>
   </ul> `,

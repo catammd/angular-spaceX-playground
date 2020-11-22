@@ -147,7 +147,7 @@ interface RocketInterface {
 
 export interface LaunchInterface {
   flight_number: number;
-  mission_name: string;
+  name: string;
   mission_id?: string[];
   upcoming?: boolean;
   launch_year?: string;
@@ -162,7 +162,7 @@ export interface LaunchInterface {
   ships: string[];
   telemetry: TelemetryInterface;
   launch_site: LaunchSiteInterface;
-  launch_success: boolean;
+  success: boolean;
   launch_failure_details?: LaunchFailureInterface;
   links: LinksInterface;
   details: string;
