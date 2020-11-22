@@ -16,7 +16,9 @@ import { LaunchInterface } from '../../models/launch.interface';
       placeholder="Search"
     />
     <mission-details
-      *ngFor="let launch of launches | filter: searchText"
+      *ngFor="
+        let launch of launches | filter: searchText | sortBy: 'desc':'date_utc'
+      "
       [mission]="launch"
     >
     </mission-details>

@@ -9,8 +9,9 @@ import { SpaceXLaunchFinderComponent } from './containers/spaceX-launch-finder/s
 import { MissionDetailsComponent } from './components/mission-details/mission-details.component';
 //Service
 import { SpaceXLaunchFinderService } from './spaceX-launch-finder.service';
-//Filter
-import { FilterPipe } from './filter.pipe';
+//Utils
+import { FilterPipe } from './utils/filter.pipe';
+import { SortByPipe } from './utils/sort.pipe';
 
 //Pass in the config object
 @NgModule({
@@ -19,6 +20,7 @@ import { FilterPipe } from './filter.pipe';
     SpaceXLaunchFinderComponent,
     MissionDetailsComponent,
     FilterPipe,
+    SortByPipe,
   ],
   imports: [CommonModule, HttpClientModule, FormsModule],
   exports: [SpaceXLaunchFinderComponent],

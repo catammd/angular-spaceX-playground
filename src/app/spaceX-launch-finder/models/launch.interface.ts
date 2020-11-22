@@ -148,12 +148,12 @@ interface RocketInterface {
 export interface LaunchInterface {
   flight_number: number;
   name: string;
-  mission_id?: string[];
+  id?: string[];
   upcoming?: boolean;
   launch_year?: string;
-  launch_date_unix?: number;
-  launch_date_utc?: string;
-  launch_date_local?: string;
+  date_unix?: number;
+  date_utc?: string;
+  date_local?: string;
   is_tentative?: boolean;
   tentative_max_precision?: string;
   tbd?: boolean;
