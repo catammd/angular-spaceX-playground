@@ -31,16 +31,24 @@ export class SpaceXLaunchFinderComponent implements OnInit {
 
   constructor(private launchFinderService: SpaceXLaunchFinderService) {}
   ngOnInit() {
-    this.launchFinderService
-      .getPastLaunches()
-      .subscribe((data: LaunchInterface[]) => {
+    this.launchFinderService.getPastLaunches().subscribe(
+      (data: LaunchInterface[]) => {
         this.launches = data;
-      });
+      },
+      (error: Error) => {
+        //Error handling
+        console.log(error.message);
+      }
+    );
 
-    this.launchFinderService
-      .getLatestLaunch()
-      .subscribe((data: LaunchInterface) => {
+    this.launchFinderService.getLatestLaunch().subscribe(
+      (data: LaunchInterface) => {
         this.latestLaunch = data;
-      });
+      },
+      (error: Error) => {
+        //Error handling
+        console.log(error.message);
+      }
+    );
   }
 }
