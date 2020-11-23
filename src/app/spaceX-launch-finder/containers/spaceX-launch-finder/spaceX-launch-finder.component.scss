@@ -1,3 +1,9 @@
+h1,
+h2,
+h3 {
+  padding-left: 1rem;
+}
+
 .c-card-container {
   display: flex;
   flex-direction: row;
@@ -16,6 +22,7 @@
     grid-row-gap: 1.5rem;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     margin: 0;
+    margin-left: -0.5rem;
   }
 
   .c-card + .c-card {
@@ -37,4 +44,28 @@
   margin: 0 0 1.5rem 1.5rem;
   border: 1px solid;
   border-radius: 0.25rem;
+}
+
+.c-text-input {
+  display: flex;
+
+  input {
+    padding: 10px 10px 10px 8px;
+    border: 0;
+    border: 1px solid #9aa3ab;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid #000;
+    }
+
+    &::placeholder {
+      color: #9aa3ab;
+    }
+  }
 }

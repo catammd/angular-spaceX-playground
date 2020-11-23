@@ -8,15 +8,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-p {
-  margin: 0;
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
