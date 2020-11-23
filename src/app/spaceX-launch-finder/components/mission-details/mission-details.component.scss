@@ -48,19 +48,33 @@ $color_utility2: #d63649 !default;
   flex-grow: 1;
 }
 
-.c-card a {
+.c-card__text a {
   outline: none;
 }
 
-.c-card h2 a {
+.c-card__text h2 a {
   text-decoration: none;
+  color: $color-black;
+  text-decoration-skip: ink;
+  transition: color 0.25s;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $color-shade2;
+  }
+
+  &:focus {
+    outline: 2px solid $color_brand1;
+    outline-offset: 2px;
+  }
 }
 
-.c-card h2 a:focus {
+.c-card__text h2 a:focus {
   text-decoration: underline;
 }
 
-.c-card h2:focus-within ~ .c-btn {
+.c-card__text h2:focus-within ~ .c-btn {
   @include button-focus-state();
 }
 
@@ -90,7 +104,6 @@ $color_utility2: #d63649 !default;
 
 .c-card__text > .launch-success {
   display: inline-block;
-  margin: 0 0 1.5rem;
   padding: 0.625rem 0.625rem 0.5rem;
   border-width: 1px;
   border-style: solid;
