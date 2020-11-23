@@ -3,6 +3,7 @@ import { LaunchInterface } from '../../models/launch.interface';
 
 @Component({
   selector: 'mission-details',
+  styleUrls: ['mission-details.component.scss'],
   template: `<ul>
     <li>
       Mission details
