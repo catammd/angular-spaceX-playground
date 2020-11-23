@@ -80,9 +80,13 @@ interface LaunchFailureInterface {
   reason: string;
 }
 
+interface PatchInterface {
+  small: string;
+  large: string;
+}
+
 interface LinksInterface {
-  mission_patch: string;
-  mission_patch_small: string;
+  patch: PatchInterface;
   reddit_campaign?: string;
   reddit_launch?: string;
   reddit_recovery?: string;
@@ -164,7 +168,7 @@ export interface LaunchInterface {
   launch_site: LaunchSiteInterface;
   success: boolean;
   launch_failure_details?: LaunchFailureInterface;
-  links: LinksInterface;
+  links?: LinksInterface;
   details: string;
   static_fire_date_utc: string;
   static_fire_date_unix: number;

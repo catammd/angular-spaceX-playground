@@ -16,9 +16,9 @@ import { LaunchInterface } from '../../models/launch.interface';
       [(ngModel)]="searchText"
       placeholder="Search"
     />
-    <div class="card-container">
+    <div class="c-card-container">
       <mission-details
-        class="card"
+        class="c-card"
         *ngFor="
           let launch of launches
             | filter: searchText

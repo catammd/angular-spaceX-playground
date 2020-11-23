@@ -1,58 +1,40 @@
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-.card {
-  border: 1px solid red;
-  border-radius: 4px;
-  border: 1px solid #eee;
-  background-color: #fafafa;
-  width: 200px;
-  margin: 0 8px 16px;
-  padding: 16px;
+.c-card-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-  line-height: 24px;
-}
+  flex-wrap: wrap;
 
-.card-container .card:not(:last-child) {
-  margin-right: 0;
+  padding: 0;
+  margin: 0;
+  padding: 0;
+  margin-left: -1.5rem;
+  width: 100%;
 }
+@supports (display: grid) {
+  .c-card-container {
+    display: grid;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    margin: 0;
+  }
 
-.card.card-small {
-  height: 16px;
-  width: 168px;
+  .c-card + .c-card {
+    margin-top: 0;
+  }
+
+  .c-card {
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 }
-
-.card-container .card:not(.highlight-card) {
-  cursor: pointer;
-}
-
-.card-container .card:not(.highlight-card):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-}
-
-.card-container .card:not(.highlight-card):hover .material-icons path {
-  fill: rgb(105, 103, 103);
-}
-
-.card.highlight-card {
-  background-color: #1976d2;
-  color: white;
-  font-weight: 600;
-  border: none;
-  width: auto;
-  min-width: 30%;
-  position: relative;
-}
-
-.card.card.highlight-card span {
-  margin-left: 60px;
+.c-card {
+  min-width: 15rem;
+  //width: calc((100% / 5) - 1.5rem); IE: enable this line when number of c-card-container per row is known. Currently is 5
+  margin: 0 0 1.5rem 1.5rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
 }
