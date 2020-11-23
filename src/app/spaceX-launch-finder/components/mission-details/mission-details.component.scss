@@ -11,18 +11,12 @@ $color_brand2: #b4c7da !default;
 $color_shade1: #03182c !default;
 $color_shade2: #4e5d6b !default;
 $color_shade3: #9aa3ab !default;
-$color_shade4: #e5e7e9 !default;
-$color_shade5: #f7f8f8 !default;
-
 $color_white: #fff !default;
 $color_black: #000 !default;
 
 /* 🌈 UI Colors */
 $color_utility1: #33ac2e !default;
 $color_utility2: #d63649 !default;
-$color_utility3: #f7c137 !default;
-$color_utility4: #0064d4 !default;
-$color_utility5: #7538f3 !default;
 
 @mixin button-focus-state() {
   outline: 0;
@@ -92,6 +86,28 @@ $color_utility5: #7538f3 !default;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
+}
+
+.c-card__text > .launch-success {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.625rem 0.625rem 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 0.75em;
+  line-height: 1;
+  letter-spacing: 0.05625em;
+  text-transform: uppercase;
+}
+
+.c-card__text > .launch-success.successful {
+  border-color: $color_utility1;
+  color: $color_utility1;
+}
+
+.c-card__text > .launch-success.unsuccessful {
+  border-color: $color_utility2;
+  color: $color_utility2;
 }
 
 .c-btn {

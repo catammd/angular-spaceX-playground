@@ -26,9 +26,20 @@ import { LaunchInterface } from '../../models/launch.interface';
       </h2>
       <p>Flight number: {{ mission?.flight_number }}</p>
       <p>Date: {{ mission?.date_utc | date: 'd MMMM y' }}</p>
+
+      <span
+        class="launch-success"
+        [ngClass]="{
+          successful: mission?.success,
+          unsuccessful: !mission?.success
+        }"
+        >{{
+          mission?.success ? 'Launch Successful' : 'Launch Unsuccessful'
+        }}</span
+      >
       <p class="c-card__text-details">{{ mission?.details }}</p>
-      <span class="c-btn c-btn--primary" aria-hidden="true" id="desc-a-card"
-        >Read article →</span
+      <a class="c-btn c-btn--primary" href="{{ mission?.links?.article }}"
+        >Read article →</a
       >
     </div>
   `,
