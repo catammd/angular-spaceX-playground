@@ -1,0 +1,175 @@
+/* ==========================================================================
+   #COLORS
+   ========================================================================== */
+
+/* 🎨 Brand */
+
+$color_brand1: #064785 !default;
+$color_brand2: #b4c7da !default;
+
+/* 🕶️ Shades */
+$color_shade1: #03182c !default;
+$color_shade2: #4e5d6b !default;
+$color_shade3: #9aa3ab !default;
+$color_white: #fff !default;
+$color_black: #000 !default;
+
+/* 🌈 UI Colors */
+$color_utility1: #33ac2e !default;
+$color_utility2: #d63649 !default;
+
+@mixin button-focus-state() {
+  outline: 0;
+
+  &::after {
+    height: calc(100% + 10px);
+    width: calc(100% + 10px);
+    left: -5px;
+    top: -5px;
+    opacity: 1;
+  }
+}
+
+.c-card__text {
+  padding: 1rem;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-card__img img {
+  padding-top: 1rem;
+  max-width: 120px;
+  display: block;
+  margin: 0px auto;
+}
+
+.c-card p {
+  flex-grow: 1;
+}
+
+.c-card__text a {
+  outline: none;
+}
+
+.c-card__text h2 a {
+  text-decoration: none;
+  color: $color-black;
+  text-decoration-skip: ink;
+  transition: color 0.25s;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $color-shade2;
+  }
+
+  &:focus {
+    outline: 2px solid $color_brand1;
+    outline-offset: 2px;
+  }
+}
+
+.c-card__text h2 a:focus {
+  text-decoration: underline;
+}
+
+.c-card__text h2:focus-within ~ .c-btn {
+  @include button-focus-state();
+}
+
+.c-card:focus-within h2 a:focus {
+  text-decoration: none;
+}
+
+.c-card__text > * + * {
+  margin-top: 0.75rem;
+}
+
+.c-card__text > :nth-last-child(3) {
+  margin-bottom: 0.75rem;
+}
+
+.c-card__text > :nth-last-child(2) {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.c-card__text-details {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+.c-card__text > .launch-success {
+  display: inline-block;
+  padding: 0.625rem 0.625rem 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 0.75em;
+  line-height: 1;
+  letter-spacing: 0.05625em;
+  text-transform: uppercase;
+}
+
+.c-card__text > .launch-success.successful {
+  border-color: $color_utility1;
+  color: $color_utility1;
+}
+
+.c-card__text > .launch-success.unsuccessful {
+  border-color: $color_utility2;
+  color: $color_utility2;
+}
+
+.c-btn {
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1;
+  padding: 11px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.25s, color 0.25s, transform 0.05s;
+  vertical-align: middle;
+  white-space: nowrap;
+  min-width: 120px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border: 1px solid $color_black;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all 0.25s;
+  }
+
+  &:focus,
+  &:hover {
+    @include button-focus-state();
+  }
+
+  &:active {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+  /**
+     * Primary
+     */
+
+  &.c-btn--primary {
+    background-color: $color_black;
+    border: 1px solid $color_shade1;
+    color: $color_white;
+  }
+}
