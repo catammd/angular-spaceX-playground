@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SpaceXLaunchFinderService } from '../../spaceX-launch-finder.service';
 import { LaunchInterface } from '../../models/launch.interface';
+import { SortInterface } from '../../models/sort.interface';
 
-interface SortInterface {
-  value: string;
-  selectOptionText: string;
-}
 @Component({
   selector: 'spacex-launch-finder',
   styleUrls: ['spaceX-launch-finder.component.scss'],
@@ -59,27 +56,12 @@ export class SpaceXLaunchFinderComponent implements OnInit {
   sortValue: string;
 
   constructor(private launchFinderService: SpaceXLaunchFinderService) {}
+
   ngOnInit() {
     this.launchFinderService.getPastLaunches().subscribe(
       (data: LaunchInterface[]) => {
         this.launches = data;
-        //Sort dropdown setup
-        this.sortDropDownData.push({
-          value: 'date_utc',
-          selectOptionText: 'Latest launch date',
-        });
-        this.sortDropDownData.push({
-          value: 'name',
-          selectOptionText: 'Latest launch name',
-        });
-        this.sortDropDownData.push({
-          value: 'static_fire_date_utc',
-          selectOptionText: 'Latest launch fire date',
-        });
-        this.sortDropDownData.push({
-          value: 'flight_number',
-          selectOptionText: 'Latest flight number',
-        });
+        this.setupSortDropdown();
       },
       (error: Error) => {
         //Error handling
@@ -100,4 +82,22 @@ export class SpaceXLaunchFinderComponent implements OnInit {
   onOptionsSelected(value: string) {
     this.sortValue = value;
   }
+  setupSortDropdown = () => {
+    this.sortDropDownData.push({
+      value: 'date_utc',
+      selectOptionText: 'Latest launch date',
+    });
+    this.sortDropDownData.push({
+      value: 'name',
+      selectOptionText: 'Latest launch name',
+    });
+    this.sortDropDownData.push({
+      value: 'static_fire_date_utc',
+      selectOptionText: 'Latest launch fire date',
+    });
+    this.sortDropDownData.push({
+      value: 'flight_number',
+      selectOptionText: 'Latest flight number',
+    });
+  };
 }
