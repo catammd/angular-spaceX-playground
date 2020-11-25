@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpaceXLaunchFinderService } from '../../spaceX-launch-finder.service';
 import { LaunchInterface } from '../../models/launch.interface';
+import { SortInterface } from '../../models/sort.interface';
 
 @Component({
   selector: 'spacex-launch-finder',
@@ -35,6 +36,7 @@ export class SpaceXLaunchFinderComponent implements OnInit {
   sortValue: string;
 
   constructor(private launchFinderService: SpaceXLaunchFinderService) {}
+
   ngOnInit() {
     this.launchFinderService.getPastLaunches().subscribe(
       (data: LaunchInterface[]) => {
@@ -63,4 +65,22 @@ export class SpaceXLaunchFinderComponent implements OnInit {
   handleFilter(filterValue: string) {
     this.searchText = filterValue;
   }
+  setupSortDropdown = () => {
+    this.sortDropDownData.push({
+      value: 'date_utc',
+      selectOptionText: 'Latest launch date',
+    });
+    this.sortDropDownData.push({
+      value: 'name',
+      selectOptionText: 'Latest launch name',
+    });
+    this.sortDropDownData.push({
+      value: 'static_fire_date_utc',
+      selectOptionText: 'Latest launch fire date',
+    });
+    this.sortDropDownData.push({
+      value: 'flight_number',
+      selectOptionText: 'Latest flight number',
+    });
+  };
 }
