@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpaceXLaunchFinderService } from '../../spaceX-launch-finder.service';
 import { LaunchInterface } from '../../models/launch.interface';
-import { SortInterface } from '../../models/sort.interface';
 
 @Component({
   selector: 'spacex-launch-finder',
@@ -12,29 +11,9 @@ import { SortInterface } from '../../models/sort.interface';
       <mission-details [mission]="latestLaunch"></mission-details>
     </div>
     <h3>All Space X Launches</h3>
-    <div class="c-text-input">
-      <input
-        class="form-control"
-        type="text"
-        placeholder="Search for a launch"
-        [(ngModel)]="searchText"
-      />
-      <div class="c-select">
-        Sort by:
-        <select
-          class="c-select-option"
-          #mySelect
-          (change)="onOptionsSelected(mySelect.value)"
-        >
-          <option
-            class="option"
-            *ngFor="let option of sortDropDownData"
-            [value]="option.value"
-          >
-            {{ option.selectOptionText }}
-          </option>
-        </select>
-      </div>
+    <div class="c-mission-actions">
+      <mission-search (filter)="handleFilter($event)"></mission-search>
+      <mission-sort (sort)="handleSort($event)"></mission-sort>
     </div>
     <div class="c-card-container">
       <mission-details
@@ -51,7 +30,7 @@ import { SortInterface } from '../../models/sort.interface';
 export class SpaceXLaunchFinderComponent implements OnInit {
   launches: LaunchInterface[];
   latestLaunch: LaunchInterface;
-  sortDropDownData: Array<SortInterface> = [];
+
   searchText: string;
   sortValue: string;
 
@@ -61,7 +40,6 @@ export class SpaceXLaunchFinderComponent implements OnInit {
     this.launchFinderService.getPastLaunches().subscribe(
       (data: LaunchInterface[]) => {
         this.launches = data;
-        this.setupSortDropdown();
       },
       (error: Error) => {
         //Error handling
@@ -79,25 +57,11 @@ export class SpaceXLaunchFinderComponent implements OnInit {
       }
     );
   }
-  onOptionsSelected(value: string) {
-    this.sortValue = value;
+  handleSort(sortValue: string) {
+    this.sortValue = sortValue;
   }
-  setupSortDropdown = () => {
-    this.sortDropDownData.push({
-      value: 'date_utc',
-      selectOptionText: 'Latest launch date',
-    });
-    this.sortDropDownData.push({
-      value: 'name',
-      selectOptionText: 'Latest launch name',
-    });
-    this.sortDropDownData.push({
-      value: 'static_fire_date_utc',
-      selectOptionText: 'Latest launch fire date',
-    });
-    this.sortDropDownData.push({
-      value: 'flight_number',
-      selectOptionText: 'Latest flight number',
-    });
-  };
+
+  handleFilter(filterValue: string) {
+    this.searchText = filterValue;
+  }
 }

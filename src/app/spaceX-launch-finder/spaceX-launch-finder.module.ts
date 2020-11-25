@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { SpaceXLaunchFinderComponent } from './containers/spaceX-launch-finder/spaceX-launch-finder-component';
 //Components
 import { MissionDetailsComponent } from './components/mission-details/mission-details.component';
+import { MissionSearchComponent } from './components/mission-search/mission-search.component';
+import { MissionSortComponent } from './components/mission-sort/mission-sort.component';
 //Service
 import { SpaceXLaunchFinderService } from './spaceX-launch-finder.service';
 //Utils
@@ -19,6 +21,8 @@ import { SortByPipe } from './utils/sort.pipe';
   declarations: [
     SpaceXLaunchFinderComponent,
     MissionDetailsComponent,
+    MissionSearchComponent,
+    MissionSortComponent,
     FilterPipe,
     SortByPipe,
   ],
