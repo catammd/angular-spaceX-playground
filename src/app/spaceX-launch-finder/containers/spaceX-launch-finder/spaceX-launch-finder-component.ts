@@ -11,7 +11,7 @@ import { LaunchInterface } from '../../models/launch.interface';
       <mission-details [mission]="latestLaunch"></mission-details>
     </div>
     <h3>All Space X Launches</h3>
-    <div class="c-text-input">
+    <div class="c-mission-actions">
       <mission-search (filter)="handleFilter($event)"></mission-search>
       <mission-sort (sort)="handleSort($event)"></mission-sort>
     </div>
