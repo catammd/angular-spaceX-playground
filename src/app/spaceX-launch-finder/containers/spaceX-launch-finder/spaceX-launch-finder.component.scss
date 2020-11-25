@@ -48,46 +48,15 @@ h3 {
 
 .c-text-input {
   display: flex;
+  flex-wrap: wrap;
+}
 
-  input {
-    padding: 10px 10px 10px 8px;
-    border: 0;
-    border: 1px solid #9aa3ab;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-    margin-left: 1rem;
-    margin-right: 0.5rem;
-    border-radius: 4px;
-
-    &:focus {
-      outline: none;
-      border: 1px solid #000;
-    }
-
-    &::placeholder {
-      color: #9aa3ab;
-    }
-  }
+.c-text-input > mission-search {
+  flex-grow: 1;
 }
 .c-latest-mission {
   border: 1px solid #000;
   margin-bottom: 2rem;
   margin-left: 1rem;
   margin-right: 0.5rem;
-}
-.c-select {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2rem;
-  margin-left: 1rem;
-  > select {
-    height: 2.4rem;
-    border: 1px solid #9aa3ab;
-    border-radius: 4px;
-    margin-left: 1rem;
-    margin-right: 0.5rem;
-    &:focus {
-      border: 1px solid #000;
-    }
-  }
 }

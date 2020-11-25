@@ -1,0 +1,16 @@
+.c-select {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  > select {
+    height: 2.4rem;
+    border: 1px solid #9aa3ab;
+    border-radius: 4px;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    &:focus {
+      border: 1px solid #000;
+    }
+  }
+}

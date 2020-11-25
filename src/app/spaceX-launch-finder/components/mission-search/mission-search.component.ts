@@ -11,27 +11,25 @@ import {
   selector: 'mission-search',
   styleUrls: ['mission-search.component.scss'],
   template: `
-    <div class="c-text-input">
-      <input
-        class="form-control"
-        type="text"
-        placeholder="Search for a launch"
-        [value]="searchText"
-        (input)="onFilterChange(search.value)"
-        #search
-      />
-    </div>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Search for a launch"
+      [ngModel]="searchText"
+      (input)="onSearch(search.value)"
+      #search
+    />
   `,
 })
 export class MissionSearchComponent {
-  @Input()
   searchText: string;
 
   @Output()
-  filter: EventEmitter<any> = new EventEmitter();
+  filter: EventEmitter<string> = new EventEmitter<string>();
 
-  onFilterChange(value: string) {
+  onSearch(value: string) {
     this.searchText = value;
-    console.log(this.searchText);
+    //Inform the parent that filtering occured
+    this.filter.emit(this.searchText);
   }
 }
