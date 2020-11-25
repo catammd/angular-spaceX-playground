@@ -1,8 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-interface SortInterface {
-  value: string;
-  selectOptionText: string;
-}
+import { SortInterface } from '../../models/sort.interface';
 @Component({
   selector: 'mission-sort',
   styleUrls: ['mission-sort.component.scss'],
