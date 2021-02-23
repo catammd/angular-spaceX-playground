@@ -29,7 +29,7 @@ export class MissionSortComponent {
   sort: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
-    //Sort dropdown setup
+    // Sort dropdown setup
     this.sortDropDownData.push({
       value: 'date_utc',
       selectOptionText: 'Latest launch date',
@@ -47,7 +47,7 @@ export class MissionSortComponent {
       selectOptionText: 'Latest flight number',
     });
   }
-  onOptionsSelected(value: string) {
+  onOptionsSelected(value: string): void {
     this.sort.emit(value);
   }
 }

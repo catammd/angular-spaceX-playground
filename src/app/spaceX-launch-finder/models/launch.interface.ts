@@ -87,12 +87,13 @@ interface PatchInterface {
 
 interface LinksInterface {
   patch: PatchInterface;
-  reddit_campaign?: string;
-  reddit_launch?: string;
-  reddit_recovery?: string;
-  reddit_media?: string;
+  campaign?: string;
+  reddit?: string;
+  launch?: string;
+  recovery?: string;
+  media?: string;
   presskit?: string;
-  article_link: string;
+  article: string;
   wikipedia: string;
   video_link: string;
   youtube_id: string;

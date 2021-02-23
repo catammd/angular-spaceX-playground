@@ -36,13 +36,13 @@ export class SpaceXLaunchFinderComponent implements OnInit {
 
   constructor(private launchFinderService: SpaceXLaunchFinderService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.launchFinderService.getPastLaunches().subscribe(
       (data: LaunchInterface[]) => {
         this.launches = data;
       },
       (error: Error) => {
-        //Error handling
+        // Error handling
         console.log(error.message);
       }
     );
@@ -52,16 +52,16 @@ export class SpaceXLaunchFinderComponent implements OnInit {
         this.latestLaunch = data;
       },
       (error: Error) => {
-        //Error handling
+        // Error handling
         console.log(error.message);
       }
     );
   }
-  handleSort(sortValue: string) {
+  handleSort(sortValue: string): void {
     this.sortValue = sortValue;
   }
 
-  handleFilter(filterValue: string) {
+  handleFilter(filterValue: string): void {
     this.searchText = filterValue;
   }
 }

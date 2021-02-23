@@ -20,9 +20,9 @@ export class MissionSearchComponent {
   @Output()
   filter: EventEmitter<string> = new EventEmitter<string>();
 
-  onSearch(value: string) {
+  onSearch(value: string): void {
     this.searchText = value;
-    //Inform the parent that filtering occured
+    // Inform the parent that filtering occurred
     this.filter.emit(this.searchText);
   }
 }

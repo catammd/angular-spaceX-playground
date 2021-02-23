@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 
-const SPACEX_BASE_API: string = 'https://api.spacexdata.com/v4/launches';
+const SPACEX_BASE_API = 'https://api.spacexdata.com/v4/launches';
 @Injectable()
 export class SpaceXLaunchFinderService {
   constructor(private http: HttpClient) {}
